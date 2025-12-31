@@ -1,0 +1,19 @@
+services:
+  # SearXNG - Self-hosted meta search engine (FREE & UNLIMITED!)
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8085/
+      - SEARXNG_SECRET_KEY=ai-career-companion-secret-key
+    restart: unless-stopped
+    networks:
+      - career-network
+
+networks:
+  career-network:
+    driver: bridge

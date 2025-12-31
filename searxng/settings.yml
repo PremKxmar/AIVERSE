@@ -1,0 +1,35 @@
+# SearXNG Configuration for AI Career Companion
+# This file configures the self-hosted search engine
+
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "AI Career Companion Search"
+
+search:
+  safe_search: 0
+  autocomplete: "google"
+  default_lang: "en"
+
+server:
+  secret_key: "ai-career-companion-secret-key"
+  limiter: false
+  image_proxy: true
+
+ui:
+  static_use_hash: true
+  default_theme: simple
+  
+engines:
+  - name: google
+    engine: google
+    shortcut: g
+    
+  - name: bing
+    engine: bing
+    shortcut: b
+    
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+env/
+venv/
+ENV/
+build/
+dist/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Project Specific
+Verve.zip
+Verve/
+hackathon.pdf
+AI_Career_Companion_Final.md
+AI_Career_Companion_Hackathon.md
+FRONTEND_PROMPT.md
+Implementation_Plan.md
+PROJECT_STRUCTURE.md
+Website_App_Prompt.md
+teammate1.md
+teammate2.md
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
