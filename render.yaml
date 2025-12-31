@@ -1,0 +1,34 @@
+services:
+  # Backend Service
+  - type: web
+    name: ai-verse-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: SEARXNG_URL
+        sync: false
+      - key: DEBUG
+        value: "false"
+
+  # SearXNG Service (Docker)
+  - type: web
+    name: ai-verse-searxng
+    env: docker
+    plan: free # Note: Docker on Render might require a paid plan or specific config
+    dockerContext: .
+    dockerfilePath: ./searxng/Dockerfile # I need to check if this exists or create it
+    envVars:
+      - key: SEARXNG_BASE_URL
+        fromService:
+          name: ai-verse-searxng
+          type: web
+          property: host
+      - key: SEARXNG_SECRET_KEY
+        generateValue: true

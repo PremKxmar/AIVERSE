@@ -7,7 +7,8 @@ from pydantic_settings import BaseSettings
 from functools import lru_cache
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="c:\\sem6-real\\ai_verse\\.env")
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
